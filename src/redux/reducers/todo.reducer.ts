@@ -1,17 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface ITodo {
-  id: number;
-  todo: string | null;
-  status: boolean;
-}
-
-interface ITodoState {
-  todo: ITodo[];
-}
+import { IChecked, ITodo, ITodoState } from '../../interfaces';
 
 const initialState: ITodoState = {
   todo: [],
+  sort: 'все',
 };
 
 export const todoReducer = createSlice({
@@ -30,9 +22,18 @@ export const todoReducer = createSlice({
         newTodo.todo = action.payload.todo;
       }
     },
+    sortTodo(state, action: PayloadAction<string>) {
+      state.sort = action.payload;
+    },
+    checkedTodo(state, action: PayloadAction<IChecked>) {
+      const checkedTodo = state.todo.find((t) => t.id === action.payload.id);
+      if (checkedTodo) {
+        checkedTodo.status = action.payload.status;
+      }
+    },
   },
 });
 
-export const { setTodo, deleteTodo, editTodo } = todoReducer.actions;
+export const { setTodo, deleteTodo, editTodo, sortTodo, checkedTodo } = todoReducer.actions;
 
 export default todoReducer.reducer;

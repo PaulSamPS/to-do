@@ -1,0 +1,33 @@
+.wrapper {
+  box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
+  padding: 20px;
+  position: fixed;
+  margin: 0 auto;
+  top: 40px;
+  height: fit-content;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 600px;
+  z-index: 12;
+  background-color: white;
+
+  input {
+    outline: none;
+    width: 85%;
+
+    font-size: 13px;
+    line-height: 22px;
+    border: none;
+
+    &::placeholder {
+      color: #DADADA;
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 20px;
+    top: 19px;
+  }
+}

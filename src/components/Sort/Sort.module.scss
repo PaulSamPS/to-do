@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  justify-content: right;
+  column-gap: 10px;
+  box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
+  padding: 20px;
+  position: fixed;
+  margin: 0 auto;
+  height: fit-content;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  width: 600px;
+  z-index: 11;
+  background-color: white;
+
+  .active {
+    background-color: #000000 !important;
+    color: #ffffff;
+  }
+}

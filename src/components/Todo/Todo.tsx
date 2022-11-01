@@ -1,12 +1,11 @@
 import React, { ChangeEvent } from 'react';
 import cn from 'classnames';
-import { CheckBox } from '../Ui';
 import { TodoProps } from './Todo.props';
 import { ReactComponent as RemoveIcon } from '../../helpers/icons/remove.svg';
 import { ReactComponent as SaveIcon } from '../../helpers/icons/save.svg';
 import styles from './Todo.module.scss';
 import { useAppDispatch } from '../../hooks/redux';
-import { deleteTodo, editTodo } from '../../redux/reducers/todo.reducer';
+import { checkedTodo, deleteTodo, editTodo } from '../../redux/reducers/todo.reducer';
 
 export const Todo = ({ todo }: TodoProps) => {
   const [isChecked, setIsChecked] = React.useState<boolean>(false);
@@ -29,14 +28,25 @@ export const Todo = ({ todo }: TodoProps) => {
     setIsEditable(false);
   };
 
+  const handleChecked = () => {
+    setIsChecked(!isChecked);
+    const obj = {
+      id: todo.id,
+      status: isChecked,
+    };
+    dispatch(checkedTodo(obj));
+  };
+
   return (
     <div className={styles.wrapper}>
-      <CheckBox isChecked={isChecked} setIsChecked={setIsChecked} className={styles.checkBox} />
+      <div className={cn(styles.checkBox, { [styles.check]: todo.status })} onClick={handleChecked}>
+        <span />
+      </div>
       <span
         contentEditable={!isChecked}
         suppressContentEditableWarning
         onInput={onChange}
-        className={cn(styles.text, { [styles.done]: isChecked })}
+        className={cn(styles.text, { [styles.done]: todo.status })}
       >
         {todo.todo}
       </span>

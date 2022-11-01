@@ -1,10 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-
-interface ITodo {
-  id: number;
-  todo: string | null;
-  status: boolean;
-}
+import { ITodo } from '../../interfaces';
 
 export interface TodoProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
