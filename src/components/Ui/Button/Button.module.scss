@@ -1,0 +1,26 @@
+.button {
+  display: inline-block;
+
+  box-sizing: border-box;
+  padding: 5px 10px;
+
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+
+  border: none;
+
+  font-size: 12px;
+
+  transition: all ease .2s;
+
+  &:disabled {
+    background-color: #DADADA;
+  }
+
+  &:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+

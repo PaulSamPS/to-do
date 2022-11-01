@@ -1,0 +1,60 @@
+.check {
+  border: 2px solid #000000 !important;
+
+  span {
+    &:before {
+      width: 10px !important;
+      transform: rotate(-45deg) translate(20%,10%) !important;
+      background-color: #000000 !important;
+    }
+
+    &:after {
+      width: 5px !important;
+      transform: rotate(-135deg) translate(5%,-10%) !important;
+      background-color: #000000 !important;
+    }
+  }
+}
+
+.checkBox {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  position: relative;
+
+  transition: all ease .2s;
+
+  background: linear-gradient(180deg, #FCFCFC 0%, #F8F8F8 100%);
+  border: 2px solid #DADADA;
+  border-radius: 5px;
+
+  span {
+    &:before {
+      content: "";
+      display: block;
+      height: 2px;
+      top: 10px;
+      left: 5px;
+      position: absolute;
+      transition: all ease .2s;
+      border-radius: 2px;
+      width: 5px ;
+      transform: rotate(-135deg) translate(5%,-10%);
+      background-color: transparent;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      height: 2px;
+      position: absolute;
+      transition: all ease .2s;
+      top: 10px;
+      left: 5px;
+      border-radius: 2px;
+      width: 10px;
+      transform: rotate(-45deg) translate(20%,10%) ;
+      background-color: transparent;
+    }
+  }
+}

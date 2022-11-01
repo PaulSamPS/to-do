@@ -1,0 +1,44 @@
+.wrapper {
+  width: 600px;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+  padding: 20px;
+
+  .header {
+    position: relative;
+    margin-bottom: 20px;
+
+    input {
+      padding: 7px 0;
+      outline: none;
+      width: 85%;
+
+      font-size: 13px;
+      line-height: 22px;
+      border: none;
+      border-bottom: 1px solid #DADADA;
+
+      &::placeholder {
+        color: #DADADA;
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: right;
+    column-gap: 10px;
+
+    .active {
+      background-color: #000000 !important;
+      color: #ffffff;
+    }
+  }
+}
