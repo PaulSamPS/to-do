@@ -8,7 +8,6 @@ import { useAppDispatch } from '../../hooks/redux';
 import { checkedTodo, deleteTodo, editTodo } from '../../redux/reducers/todo.reducer';
 
 export const Todo = ({ todo }: TodoProps) => {
-  const [isChecked, setIsChecked] = React.useState<boolean>(false);
   const [text, setText] = React.useState<string | null>(todo.todo);
   const [isEditable, setIsEditable] = React.useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -29,12 +28,19 @@ export const Todo = ({ todo }: TodoProps) => {
   };
 
   const handleChecked = () => {
-    setIsChecked(!isChecked);
-    const obj = {
-      id: todo.id,
-      status: isChecked,
-    };
-    dispatch(checkedTodo(obj));
+    if (todo.status) {
+      const obj = {
+        id: todo.id,
+        status: false,
+      };
+      dispatch(checkedTodo(obj));
+    } else {
+      const obj = {
+        id: todo.id,
+        status: true,
+      };
+      dispatch(checkedTodo(obj));
+    }
   };
 
   return (
@@ -43,7 +49,7 @@ export const Todo = ({ todo }: TodoProps) => {
         <span />
       </div>
       <span
-        contentEditable={!isChecked}
+        contentEditable={!todo.status}
         suppressContentEditableWarning
         onInput={onChange}
         className={cn(styles.text, { [styles.done]: todo.status })}

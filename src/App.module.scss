@@ -18,8 +18,10 @@
     border-top: 50px solid white;
   }
 
-  .main {
-
+  .todoEmpty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .todoList {
@@ -29,6 +31,12 @@
     flex: 1 1 0;
     width: 100%;
     padding: 70px 0 50px;
+
+    .empty {
+      text-align: center;
+      font-size: 13px;
+      color: #DADADA;
+    }
   }
 
   .sort {

@@ -14,7 +14,6 @@ export interface ITodoState {
   sort: string;
 }
 
-export interface ISortHelper {
-  value: string;
-  arr: ITodo[];
+export interface IUseSortReturn {
+  newArr: ITodo[];
 }
