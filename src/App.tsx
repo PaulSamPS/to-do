@@ -1,16 +1,10 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import cn from 'classnames';
 import styles from './App.module.scss';
 import { Todo } from './components/Todo/Todo';
 import { Button } from './components/Ui/Button/Button';
-import { useAppDispatch } from './hooks/redux';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
 import { setTodo } from './redux/reducers/todo.reducer';
-
-const todosArr = [
-  { id: 0, todo: 'Сделать дело 1', done: false },
-  { id: 1, todo: 'Сделать дело 2', done: false },
-  { id: 2, todo: 'Сделать дело 3', done: false },
-];
 
 const sort = [
   { id: 0, name: 'все' },
@@ -19,18 +13,20 @@ const sort = [
 ];
 
 function App() {
+  const { todo } = useAppSelector((state) => state.todoReducer);
   const [activeSort, setActiveSort] = React.useState<number>(0);
   const [text, setText] = React.useState<string>('');
   const dispatch = useAppDispatch();
 
-  const onSub = () => {
+  const onSub = (e: FormEvent) => {
+    e.preventDefault();
     const todos = {
       id: Date.now(),
       todo: text,
       status: false,
     };
-
     dispatch(setTodo(todos));
+    setText('');
   };
 
   return (
@@ -41,13 +37,11 @@ function App() {
           onChange={(e) => setText(e.target.value)}
           value={text}
         />
-        <Button type='submit'>добавить</Button>
+        <Button type='submit' disabled={text.length <= 0}>
+          добавить
+        </Button>
       </form>
-      <div className={styles.todoList}>
-        {todosArr.map((t) => (
-          <Todo key={t.id} todo={t} />
-        ))}
-      </div>
+      <div className={styles.todoList}>{todo && todo.map((t) => <Todo key={t.id} todo={t} />)}</div>
       <div className={styles.bottom}>
         {sort.map((s, index) => (
           <Button

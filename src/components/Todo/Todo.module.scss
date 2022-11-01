@@ -1,16 +1,37 @@
 .wrapper {
-  display: flex;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 24px minmax(250px, 1fr) 24px 20px;
+  grid-template-areas: 'checkBox text save remove';
   column-gap: 10px;
   margin-bottom: 10px;
 
-  span {
+  .checkBox {
+    grid-area: checkBox;
+  }
+
+  .text {
+    grid-area: text;
     display: block;
     width: 100%;
     font-size: 13px;
     word-wrap: anywhere;
+    outline: none;
+    max-width: 470px;
+  }
+
+  .save {
+    grid-area: save;
+    height: 24px;
+    cursor: pointer;
   }
 
   .done {
     text-decoration: line-through;
+  }
+  
+  .remove {
+    grid-area: remove;
+    cursor: pointer;
   }
 }

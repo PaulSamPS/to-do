@@ -2,7 +2,8 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 interface ITodo {
   id: number;
-  todo: string;
+  todo: string | null;
+  status: boolean;
 }
 
 export interface TodoProps

@@ -12,10 +12,18 @@
 
   font-size: 12px;
 
+  background-color: #f0f0f0;
+
   transition: all ease .2s;
 
   &:disabled {
-    background-color: #DADADA;
+    color: #DADADA;
+    cursor: unset;
+
+    &:hover {
+      color: #DADADA;
+      background-color: #f0f0f0;
+    }
   }
 
   &:hover {
