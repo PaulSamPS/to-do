@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { Button } from '@/components/Ui';
 import styles from './Sort.module.scss';
-import { useAppDispatch } from '@/hooks';
+import { useAppDispatch, useAppSelector } from '@/hooks';
 import { sortTodo } from '@/redux/reducers';
 
 const sortItems = [
@@ -12,21 +12,20 @@ const sortItems = [
 ];
 
 export const Sort = () => {
-  const [activeSort, setActiveSort] = React.useState<number>(0);
+  const { sort } = useAppSelector((state) => state.todoReducer);
   const dispatch = useAppDispatch();
 
-  const handleSort = (value: string, index: number) => {
+  const handleSort = (value: string) => {
     dispatch(sortTodo(value));
-    setActiveSort(index);
   };
 
   return (
     <div className={styles.wrapper}>
-      {sortItems.map((s, index) => (
+      {sortItems.map((s) => (
         <Button
           key={s.id}
-          onClick={() => handleSort(s.name, index)}
-          className={cn({ [styles.active]: activeSort === index })}
+          onClick={() => handleSort(s.name)}
+          className={cn({ [styles.active]: sort === s.name })}
         >
           {s.name}
         </Button>

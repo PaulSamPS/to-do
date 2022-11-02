@@ -1,21 +1,21 @@
 .wrapper {
-  display: flex;
-  justify-content: right;
-  column-gap: 10px;
-  box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
-  padding: 20px;
-  position: fixed;
-  margin: 0 auto;
-  height: fit-content;
-  left: 0;
-  right: 0;
-  bottom: 40px;
-  width: 600px;
-  z-index: 11;
-  background-color: white;
+	position: fixed;
+	right: 0;
+	bottom: 40px;
+	left: 0;
+	z-index: 11;
+	display: flex;
+	justify-content: right;
+	max-width: 600px;
+	height: fit-content;
+	margin: 0 auto;
+	padding: 20px;
+	column-gap: 10px;
+	background-color: white;
+	box-shadow: 0 1px 0 0 #DCE1E6, 0 0 0 1px #E7E8EC;
 
-  .active {
-    background-color: #000000 !important;
-    color: #ffffff;
-  }
+	.active {
+		color: #FFF;
+		background-color: #000 !important;
+	}
 }

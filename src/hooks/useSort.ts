@@ -1,8 +1,8 @@
 import React from 'react';
-import { ITodo, IUseSortReturn } from '@/interfaces';
+import { IReturnUseSort, ITodo } from '@/interfaces';
 import { useAppSelector } from './redux';
 
-export const useSort = (): IUseSortReturn => {
+export const useSort = (): IReturnUseSort => {
   const [newArr, setNewArr] = React.useState<ITodo[]>([]);
   const { todo, sort } = useAppSelector((state) => state.todoReducer);
 

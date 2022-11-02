@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FormEvent } from 'react';
 
 export interface ITodo {
   id: number;
@@ -16,14 +16,20 @@ export interface ITodoState {
   sort: string;
 }
 
-export interface IUseSortReturn {
+export interface IReturnUseSort {
   newArr: ITodo[];
 }
 
-export interface IReturnTodoHelper {
+export interface IReturnUseTodo {
   isEditable: boolean;
   onChange: (e: ChangeEvent<HTMLDivElement>) => void;
   handleSave: () => void;
   handleChecked: () => void;
   handleDelete: () => void;
+}
+
+export interface IReturnUseCreateTodo {
+  text: string;
+  setText: (text: string) => void;
+  handleSubmit: (e: FormEvent) => void;
 }

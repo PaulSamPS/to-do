@@ -1,49 +1,49 @@
 .wrapper {
-  width: 600px;
-  margin: 40px auto ;
-  border-radius: 5px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	max-width: 600px;
+	margin: 40px auto;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 1px 0 0 #DCE1E6, 0 0 0 1px #E7E8EC;
 
-  .borderTop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    z-index: 2;
-    border-top: 50px solid white;
-  }
+	.borderTop {
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 2;
+		width: 100%;
+		border-top: 50px solid white;
+	}
 
-  .todoEmpty {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+	.todoEmpty {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-  .todoList {
-    min-height: calc(100vh - 120px);
-    height: auto;
-    z-index: 1;
-    flex: 1 1 0;
-    width: 100%;
-    padding: 70px 0 50px;
+	.todoList {
+		z-index: 1;
+		flex: 1 1 0;
+		width: 100%;
+		height: auto;
+		min-height: calc(100vh - 240px);
+		padding: 70px 0 50px;
 
-    .empty {
-      text-align: center;
-      font-size: 13px;
-      color: #DADADA;
-    }
-  }
+		.empty {
+			color: #DADADA;
+			font-size: 13px;
+			text-align: center;
+		}
+	}
 
-  .border {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    z-index: 2;
-    border-top: 50px solid white;
-  }
+	.border {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		width: 100%;
+		border-top: 50px solid white;
+	}
 }

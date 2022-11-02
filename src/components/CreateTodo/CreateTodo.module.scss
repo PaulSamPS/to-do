@@ -1,33 +1,32 @@
 .wrapper {
-  box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
-  padding: 20px;
-  position: fixed;
-  margin: 0 auto;
-  top: 40px;
-  height: fit-content;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 600px;
-  z-index: 12;
-  background-color: white;
+	position: fixed;
+	top: 40px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 12;
+	max-width: 600px;
+	height: fit-content;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: white;
+	box-shadow: 0 1px 0 0 #DCE1E6, 0 0 0 1px #E7E8EC;
 
-  input {
-    outline: none;
-    width: 85%;
+	input {
+		width: 80%;
+		font-size: 13px;
+		line-height: 22px;
+		border: none;
+		outline: none;
 
-    font-size: 13px;
-    line-height: 22px;
-    border: none;
+		&::placeholder {
+			color: #C4C4C4;
+		}
+	}
 
-    &::placeholder {
-      color: #DADADA;
-    }
-  }
-
-  button {
-    position: absolute;
-    right: 20px;
-    top: 19px;
-  }
+	button {
+		position: absolute;
+		top: 19px;
+		right: 20px;
+	}
 }

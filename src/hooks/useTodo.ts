@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from 'react';
-import { IReturnTodoHelper, ITodo } from '@/interfaces';
+import { IReturnUseTodo, ITodo } from '@/interfaces';
 import { checkedTodo, deleteTodo, editTodo } from '@/redux/reducers';
 import { useAppDispatch } from './redux';
 
-export const useTodo = (todo: ITodo): IReturnTodoHelper => {
+export const useTodo = (todo: ITodo): IReturnUseTodo => {
   const [text, setText] = React.useState<string | null>(todo.todo);
   const [isEditable, setIsEditable] = React.useState<boolean>(false);
   const dispatch = useAppDispatch();
