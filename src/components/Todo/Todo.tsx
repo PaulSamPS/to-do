@@ -1,67 +1,35 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import cn from 'classnames';
-import { TodoProps } from './Todo.props';
-import { ReactComponent as RemoveIcon } from '../../helpers/icons/remove.svg';
-import { ReactComponent as SaveIcon } from '../../helpers/icons/save.svg';
 import styles from './Todo.module.scss';
-import { useAppDispatch } from '../../hooks/redux';
-import { checkedTodo, deleteTodo, editTodo } from '../../redux/reducers/todo.reducer';
+import { TodoProps } from './Todo.props';
+import { SaveIcon, RemoveIcon } from '@/helpers/icons';
+import { useTodo } from '@/hooks';
 
 export const Todo = ({ todo }: TodoProps) => {
-  const [text, setText] = React.useState<string | null>(todo.todo);
-  const [isEditable, setIsEditable] = React.useState<boolean>(false);
-  const dispatch = useAppDispatch();
-
-  const onChange = (e: ChangeEvent<HTMLDivElement>) => {
-    setText(e.target.textContent);
-    setIsEditable(true);
-  };
-
-  const handleSave = () => {
-    const obj = {
-      id: todo.id,
-      todo: text,
-      status: todo.status,
-    };
-    dispatch(editTodo(obj));
-    setIsEditable(false);
-  };
-
-  const handleChecked = () => {
-    if (todo.status) {
-      const obj = {
-        id: todo.id,
-        status: false,
-      };
-      dispatch(checkedTodo(obj));
-    } else {
-      const obj = {
-        id: todo.id,
-        status: true,
-      };
-      dispatch(checkedTodo(obj));
-    }
-  };
+  const { ...props } = useTodo(todo);
 
   return (
     <div className={styles.wrapper}>
-      <div className={cn(styles.checkBox, { [styles.check]: todo.status })} onClick={handleChecked}>
+      <div
+        className={cn(styles.checkBox, { [styles.check]: todo.status })}
+        onClick={props.handleChecked}
+      >
         <span />
       </div>
       <span
         contentEditable={!todo.status}
         suppressContentEditableWarning
-        onInput={onChange}
+        onInput={props.onChange}
         className={cn(styles.text, { [styles.done]: todo.status })}
       >
         {todo.todo}
       </span>
-      {isEditable && (
-        <div className={styles.save} onClick={handleSave}>
+      {props.isEditable && (
+        <div className={styles.save} onClick={props.handleSave}>
           <SaveIcon />
         </div>
       )}
-      <div className={styles.remove} onClick={() => dispatch(deleteTodo(todo.id))}>
+      <div className={styles.remove} onClick={props.handleDelete}>
         <RemoveIcon />
       </div>
     </div>

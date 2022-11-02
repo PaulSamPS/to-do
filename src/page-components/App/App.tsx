@@ -1,10 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './App.module.scss';
-import { Todo } from './components/Todo/Todo';
-import { useSort } from './hooks/useSort';
-import { CreateTodo } from './components/CreateTodo/CreateTodo';
-import Sort from './components/Sort/Sort';
+import { useSort } from '@/hooks';
+import { CreateTodo, Sort, Todo } from '@/components';
 
 export const App = () => {
   const { newArr } = useSort();
@@ -20,7 +18,7 @@ export const App = () => {
           <div className={styles.empty}>Нет дел!</div>
         )}
       </div>
-      <Sort className={styles.sort} />
+      <Sort />
       <div className={styles.border} />
     </div>
   );

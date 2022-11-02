@@ -1,10 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
+import { Button } from '@/components/Ui';
 import styles from './Sort.module.scss';
-import { Button } from '../Ui';
-import { useAppDispatch } from '../../hooks/redux';
-import { sortTodo } from '../../redux/reducers/todo.reducer';
-import { SortType } from './Sort.type';
+import { useAppDispatch } from '@/hooks';
+import { sortTodo } from '@/redux/reducers';
 
 const sortItems = [
   { id: 0, name: 'все' },
@@ -12,7 +11,7 @@ const sortItems = [
   { id: 2, name: 'выполненные' },
 ];
 
-const Sort = ({ className }: SortType) => {
+export const Sort = () => {
   const [activeSort, setActiveSort] = React.useState<number>(0);
   const dispatch = useAppDispatch();
 
@@ -22,7 +21,7 @@ const Sort = ({ className }: SortType) => {
   };
 
   return (
-    <div className={cn(styles.wrapper, className)}>
+    <div className={styles.wrapper}>
       {sortItems.map((s, index) => (
         <Button
           key={s.id}
@@ -35,5 +34,3 @@ const Sort = ({ className }: SortType) => {
     </div>
   );
 };
-
-export default Sort;

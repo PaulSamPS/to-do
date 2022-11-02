@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 export interface ITodo {
   id: number;
   todo: string | null;
@@ -16,4 +18,12 @@ export interface ITodoState {
 
 export interface IUseSortReturn {
   newArr: ITodo[];
+}
+
+export interface IReturnTodoHelper {
+  isEditable: boolean;
+  onChange: (e: ChangeEvent<HTMLDivElement>) => void;
+  handleSave: () => void;
+  handleChecked: () => void;
+  handleDelete: () => void;
 }

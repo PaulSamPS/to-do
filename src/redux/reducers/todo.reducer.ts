@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IChecked, ITodo, ITodoState } from '../../interfaces';
+import { IChecked, ITodo, ITodoState } from '@/interfaces';
 
 const initialState: ITodoState = {
   todo: [],

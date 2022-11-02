@@ -1,8 +1,8 @@
 import React, { FormEvent } from 'react';
+import { Button } from '@/components/Ui';
 import styles from './CreateTodo.module.scss';
-import { Button } from '../Ui';
-import { setTodo } from '../../redux/reducers/todo.reducer';
-import { useAppDispatch } from '../../hooks/redux';
+import { setTodo } from '@/redux/reducers';
+import { useAppDispatch } from '@/hooks';
 
 export const CreateTodo = () => {
   const [text, setText] = React.useState<string>('');

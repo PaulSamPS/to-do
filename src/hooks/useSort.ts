@@ -1,5 +1,5 @@
 import React from 'react';
-import { ITodo, IUseSortReturn } from '../interfaces';
+import { ITodo, IUseSortReturn } from '@/interfaces';
 import { useAppSelector } from './redux';
 
 export const useSort = (): IUseSortReturn => {
